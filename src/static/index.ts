@@ -1,6 +1,6 @@
-import ItemController from '../static/items/controller';
-import { ItemView } from '../static/items/view';
-import { ItemModel } from '../static/items/model';
+import ItemController from './items/controller';
+import { ItemView } from './items/view';
+import { ItemModel } from './items/model';
 
 let itemView = new ItemView();
 let itemModel = new ItemModel();

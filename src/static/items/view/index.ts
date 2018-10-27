@@ -1,5 +1,5 @@
-import ItemController from '../controller';
-import { ItemModelObject } from '../model';
+import ItemController from '../controller/index';
+import { ItemModelObject } from '../model/index';
 
 export class UINode {
   id: String;
