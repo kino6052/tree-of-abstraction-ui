@@ -9,6 +9,7 @@ export default `
   </head>
   <body>
     <div id='root'></div>
+    <script>var exports = {};</script>
     <script src='${SCRIPT}'/></script>
   </body>
 </html>

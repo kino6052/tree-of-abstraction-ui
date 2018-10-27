@@ -9,6 +9,7 @@ let itemController = new ItemController(itemView, itemModel);
 itemView.itemController = itemController;
 itemModel.itemController = itemController;
 
+console.log('here');
 itemController.init();
 
 // let root: HTMLElement | null = document.getElementById('root');
