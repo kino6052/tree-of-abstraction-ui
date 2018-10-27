@@ -13,7 +13,7 @@ export default class ItemController {
   }
   refresh() {
     this.itemView.refresh(this);
-  },
+  }
   getItemModelObjects() {
     return this.itemModel.itemModelObjects;
   }

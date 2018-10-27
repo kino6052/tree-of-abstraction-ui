@@ -16,10 +16,10 @@ export class UINode {
 }
 
 export class ItemView {
-  itemController: ItemController;
+  itemController: ItemController | null;
   uiNodes: Array<UINode>;
-  constructor(itemController: ItemController) {
-    this.itemController = itemController;
+  constructor() {
+    this.itemController = null;
     this.uiNodes = [];
   }
   init(itemController: ItemController) {
@@ -45,6 +45,6 @@ export class ItemView {
     }
 
   }
-  refresh(itemController: ItemController) {
-  }
+  // refresh(itemController: ItemController) {
+  // }
 }

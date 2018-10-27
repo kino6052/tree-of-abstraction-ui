@@ -30,10 +30,10 @@ let dummyData: Array<ItemModelObject> = [
 ]
 
 export class ItemModel {
-  itemController: ItemController;
+  itemController: ItemController | null;
   itemModelObjects: Array<ItemModelObject>;
-  constructor(itemController: ItemController) {
-    this.itemController = itemController;
+  constructor() {
+    this.itemController = null;
     this.itemModelObjects = dummyData;
   }
   init() {
