@@ -1,5 +1,5 @@
-import ItemModel from '../model';
-import ItemView from '../view';
+import { ItemModel, ItemModelObject } from '../model';
+import { ItemView } from '../view';
 
 export default class ItemController {
   itemView: ItemView;
@@ -13,5 +13,8 @@ export default class ItemController {
   }
   refresh() {
     this.itemView.refresh(this);
+  },
+  getItemModelObjects() {
+    return this.itemModel.itemModelObjects;
   }
 }
