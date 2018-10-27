@@ -1,4 +1,4 @@
-import { ItemModel, ItemModelObject } from '../model';
+import { ItemModel } from '../model';
 import { ItemView } from '../view';
 
 export default class ItemController {
@@ -11,9 +11,9 @@ export default class ItemController {
   init() {
     this.itemView.init(this);
   }
-  refresh() {
-    this.itemView.refresh(this);
-  }
+  // refresh() {
+  //   this.itemView.refresh(this);
+  // }
   getItemModelObjects() {
     return this.itemModel.itemModelObjects;
   }
