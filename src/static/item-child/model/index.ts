@@ -7,9 +7,19 @@ let dummyData = [
     childId: '2'
   },
   {
-    id: '1',
+    id: '2',
     parentId: '2',
     childId: '3'
+  },
+  {
+    id: '3',
+    parentId: '3',
+    childId: '4'
+  },
+  {
+    id: '4',
+    parentId: '4',
+    childId: '1'
   }
 ]
 
