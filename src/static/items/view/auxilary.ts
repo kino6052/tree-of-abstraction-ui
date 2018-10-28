@@ -13,12 +13,15 @@ const generateHTMLElementTree = (element: HTMLElement, itemHierarchy: { [id: str
   let id: string | null = element.getAttribute('id');
   if (id) {
       let item: ItemModelObject & { children: Array<string>} = itemHierarchy[<string> id];
-      for (let childId of item.children) {
-        let child = itemHierarchy[childId];
-        let newElement = document.createElement('div');
-        newElement.setAttribute('id', <string> child.id);
-        newElement.textContent = <string> child.title;
-        generateHTMLElementTree(newElement, itemHierarchy);
+      if (item.children) {
+        for (let childId of item.children) {
+          let child = itemHierarchy[childId];
+          let newElement = document.createElement('div');
+          newElement.setAttribute('id', <string> child.id);
+          newElement.textContent = <string> child.title;
+          element.appendChild(newElement);
+          generateHTMLElementTree(newElement, itemHierarchy);
+        }
       }
   }
 }

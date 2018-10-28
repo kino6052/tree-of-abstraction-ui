@@ -1,7 +1,7 @@
 import { ItemModel } from '../model';
 import { ItemView } from '../view';
 import { ItemChildController } from '../../item-child/controller';
-import { ItemChild, ItemChildModel } from '../../item-child/model';
+import { ItemChildModel } from '../../item-child/model';
 
 export default class ItemController {
   itemView: ItemView;

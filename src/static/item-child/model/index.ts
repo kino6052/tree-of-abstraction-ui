@@ -5,7 +5,7 @@ let dummyData = [
     id: '1',
     parentId: '1',
     childId: '2'
-  }
+  },
   {
     id: '1',
     parentId: '2',
@@ -24,5 +24,6 @@ export class ItemChildModel {
   itemChildren: Array<ItemChild>;
   constructor() {
     this.itemChildren = dummyData;
+    this.itemChildController = null;
   }
 }

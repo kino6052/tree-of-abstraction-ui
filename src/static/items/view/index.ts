@@ -1,5 +1,5 @@
 import ItemController from '../controller/index';
-import { ItemModelObject } from '../model/index';
+import { generateHierarchy } from './auxilary';
 
 export class UINode {
   id: String;
@@ -18,38 +18,16 @@ export class UINode {
 
 export class ItemView {
   itemController: ItemController | null;
-  uiNodes: { [id: string]: UINode };
   constructor() {
     this.itemController = null;
-    this.uiNodes = {};
   }
   init(itemController: ItemController) {
     let root = document.getElementById('root');
-    let itemModelObjects: Array<ItemModelObject> = itemController.getItemModelObjects()
-    let itemChildren = [];
-    if (this.itemController) {
-      itemChildren = this.itemController.getItemChildren();
-    }
-    for (let itemModelObject of itemModelObjects) {
-      let {
-        title,
-        content,
-        id
-      } = itemModelObject;
-      let uiNode = new UINode(id);
-      uiNode.setContent(
-`
-<div>${title}</div>
-<div>${content}</div>
-`
-      );
-      this.uiNodes[<string> id] = uiNode;
-    }
-    for (let uiNodeId in this.uiNodes) { // Iterate over all nodes and set children
-      let uiNode = this.uiNodes[uiNodeId]
-      if (root && uiNode.htmlElement) {
-        root.appendChild(uiNode.htmlElement);
-      }
+    if (this.itemController && root) {
+      let itemModelObjects = this.itemController.getItemModelObjects();
+      let itemModelObject = itemModelObjects[0];
+      root.setAttribute('id', <string> itemModelObject.id);
+      generateHierarchy(root, itemController);
     }
   }
   // refresh(itemController: ItemController) {
