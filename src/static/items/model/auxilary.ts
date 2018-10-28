@@ -3,7 +3,7 @@ import ItemController from '../controller'
 import { ItemModelObject } from '.';
 import { ItemChild } from '../../item-child/model';
 
-export const (itemController: ItemController) => {
+export const itemHierarchyGenerator = (itemController: ItemController) => {
   let itemChildren: Array<ItemChild> = itemController.getItemChildren();
   let itemModelObjects: Array<ItemModelObject> = itemController.getItemModelObjects();
 
