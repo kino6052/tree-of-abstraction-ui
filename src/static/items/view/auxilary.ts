@@ -3,11 +3,10 @@ import ItemController from '../controller';
 import { itemHierarchyGenerator } from '../model/auxilary';
 import { ItemModelObject } from '../model';
 
-export const generateHierarchy = (root: HTMLElement, itemController: ItemController) => {
+export const generateHierarchy = (root: HTMLElement, itemController: ItemController): HTMLElement => {
   let itemHierarchy = itemHierarchyGenerator(itemController);
-  for (let itemIndex in itemHierarchy) {
-
-  }
+  generateHTMLElementTree(root, itemHierarchy);
+  return root;
 }
 
 const generateHTMLElementTree = (element: HTMLElement, itemHierarchy: { [id: string]: ItemModelObject & { children: Array<string> } } ) => {
