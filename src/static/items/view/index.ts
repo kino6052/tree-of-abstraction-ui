@@ -40,7 +40,10 @@ export class ItemView {
       );
       this.uiNodes.push(uiNode);
       if (root) {
-        root.appendChild(<Node> uiNode.htmlElement);
+        let node: HTMLElement = document.createElement('div');
+        node.setAttribute('id', <string> id);
+        node.textContent = <string> title;
+        root.appendChild(node);
       }
     }
 

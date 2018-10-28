@@ -1,4 +1,4 @@
-const SCRIPT = './static/index.js';
+const SCRIPT = './static/main.js';
 
 export default `
 <!DOCTYPE html>
