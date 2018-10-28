@@ -18,14 +18,18 @@ export class UINode {
 
 export class ItemView {
   itemController: ItemController | null;
-  uiNodes: Array<UINode>;
+  uiNodes: { [id: string]: UINode };
   constructor() {
     this.itemController = null;
-    this.uiNodes = [];
+    this.uiNodes = {};
   }
   init(itemController: ItemController) {
     let root = document.getElementById('root');
     let itemModelObjects: Array<ItemModelObject> = itemController.getItemModelObjects()
+    let itemChildren = [];
+    if (this.itemController) {
+      itemChildren = this.itemController.getItemChildren();
+    }
     for (let itemModelObject of itemModelObjects) {
       let {
         title,
@@ -39,12 +43,14 @@ export class ItemView {
 <div>${content}</div>
 `
       );
-      this.uiNodes.push(uiNode);
+      this.uiNodes[<string> id] = uiNode;
+    }
+    for (let uiNodeId in this.uiNodes) { // Iterate over all nodes and set children
+      let uiNode = this.uiNodes[uiNodeId]
       if (root && uiNode.htmlElement) {
         root.appendChild(uiNode.htmlElement);
       }
     }
-
   }
   // refresh(itemController: ItemController) {
   // }
