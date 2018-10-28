@@ -6,7 +6,8 @@ export class UINode {
   htmlElement: HTMLElement | null;
   constructor(id: String) {
     this.id = id;
-    this.htmlElement = document.getElementById(<string> id);
+    this.htmlElement = document.createElement('div');
+    this.htmlElement.setAttribute('id', <string> id);
   }
   setContent(content: String) {
     if (this.htmlElement) {
@@ -39,11 +40,8 @@ export class ItemView {
 `
       );
       this.uiNodes.push(uiNode);
-      if (root) {
-        let node: HTMLElement = document.createElement('div');
-        node.setAttribute('id', <string> id);
-        node.textContent = <string> title;
-        root.appendChild(node);
+      if (root && uiNode.htmlElement) {
+        root.appendChild(uiNode.htmlElement);
       }
     }
 
